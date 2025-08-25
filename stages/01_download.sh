@@ -17,7 +17,7 @@ mkdir -p "$downloadpath"
 
 for endpoint in "${endpoints[@]}"; do
     url="${base_url}${endpoint}"
-    output_file="$downloadpath/${endpoint}"
+    output_file="$downloadpath/$(echo "${endpoint}" | tr '-' '_')"
     echo "Downloading $url to $output_file"
     wget -q -O "$output_file" "$url"
 done
